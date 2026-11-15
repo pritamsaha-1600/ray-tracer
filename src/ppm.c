@@ -22,9 +22,9 @@ void write_image(struct PPM_Image image, const char *filename, bool binary_forma
     fprintf(out, "%s\n%zu %zu\n255\n", format, image.width, image.height);
     
     if (!binary_format) 
-        for (size_t i = 0; i < image.height; ++i) 
-            for (size_t j = 0; j < image.width; ++j) {
-                auto color = getPixel(image, i,j);
+        for (size_t v = 0; v < image.height; ++v) 
+            for (size_t u = 0; u < image.width; ++u) {
+                auto color = getPixel(image, u,v);
                 fprintf(out, "%u %u %u\n", color.r, color.g, color.b);
             }
     else 

@@ -1,4 +1,5 @@
 #include "ppm.h"
+#include "color.h"
 
 int main() {
     struct Color colors[] = {
@@ -8,9 +9,9 @@ int main() {
     const size_t width = 3, height = 2;
     const struct PPM_Image image = create_image(width, height);
 
-    for (size_t i = 0; i < height; ++i) 
-        for (size_t j = 0; j < width; ++j)
-            setPixel(image, i, j, colors[i*width+j]);
+    for (size_t v = 0; v < height; ++v)
+        for (size_t u = 0; u < width; ++u) 
+            setPixel(image, u, v, colors[v*width+u]);
             
     write_image(image, "test-ascii.ppm", false);
     write_image(image, "test-binary.ppm", true);
