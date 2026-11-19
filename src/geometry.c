@@ -16,10 +16,15 @@ transform_img_to_screen_coord(const struct Settings *settings, size_t u, size_t 
 }
 
 bool is_major_axis(const struct Settings *settings, union Pos3 pos) {
-    // any
-    for (size_t i = 0; i < 3; ++i)
-        if (fabs(pos.val[i]) < settings->axis_width)
-            return true;
+    // checks if atleast 2 coordinates lie in the interval (-axis_width/2, axis_width/2)
+    bool atleast_once = false;
+    for (size_t i = 0; i < 3; ++i) {
+        if (fabs(pos.val[i]) <= settings->axis_width/2) {
+            if (atleast_once)   
+                return true;
+            atleast_once = true;
+        }
+    }
     return false;
 }
 

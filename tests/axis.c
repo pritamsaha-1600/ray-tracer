@@ -13,7 +13,7 @@ int main() {
         .width = 848, .height = 480, 
         .binary_format = true,
         .background_color = WHITE, 
-        .axis_width = 6, .unit = 60,
+        .axis_width = 3, .unit = 50,
         .camera_position = {{0,0,1}},
         .focal_length = 0.5
     };
