@@ -6,10 +6,10 @@ struct PPM_Image
 create_image(size_t width, size_t height) {
     struct PPM_Image image = {
         .width = width, .height = height,
-        .data = malloc(sizeof(struct Color) * width * height)
+        .data = malloc(sizeof(union Color) * width * height)
     };
     if (!image.data) {
-        fprintf(stderr, "! memory allocation of size %zu failed\n", sizeof(struct Color) * width * height);
+        fprintf(stderr, "! memory allocation of size %zu failed\n", sizeof(union Color) * width * height);
         exit(EXIT_FAILURE);
     }
     return image;

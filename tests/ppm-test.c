@@ -2,7 +2,7 @@
 #include "color.h"
 
 int main() {
-    struct Color colors[] = {
+    union Color colors[] = {
         RED, GREEN, BLUE, 
         YELLOW, WHITE, BLACK
     };

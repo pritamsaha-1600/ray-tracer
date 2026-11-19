@@ -10,11 +10,13 @@ struct Settings {
     const char *filename;
     size_t width, height;
     bool binary_format;
-    struct Color background_color;
-    decimal_t axis_width;
+    union Color background_color;
+
+    // axis settinsgs
+    decimal_t axis_width, unit;
 
     // camera settings
-    struct Pos3 camera_position;
+    union Pos3 camera_position;
     decimal_t focal_length;  // distance of screen from camera lens position
 };
 
